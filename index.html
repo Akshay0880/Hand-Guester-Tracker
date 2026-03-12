@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Tracker - Draggable Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="ui-container">
+        <!-- Webcam preview -->
+        <div class="webcam-container">
+            <video class="input_video" autoplay playsinline></video>
+            <canvas class="output_canvas" width="320" height="240"></canvas>
+            <p id="status-text">Status: Waiting for initialization...</p>
+        </div>
+
+        <!-- Main Interface -->
+        <h1 class="title">Hand Gesture Interface</h1>
+        <p class="subtitle">Pinch index and thumb fingers over cards to drag them.</p>
+
+        <!-- Draggable Cards -->
+        <div class="draggable-card card-1 interactive-element" style="left: 10%; top: 30%;">
+            <h3>Dashboard Widget</h3>
+            <p>Drag me to rearrange your workspace.</p>
+            <div class="card-bar"></div>
+        </div>
+
+        <div class="draggable-card card-2 interactive-element" style="left: 40%; top: 40%;">
+            <h3>Data Analytics</h3>
+            <p>Real-time analytics block showing current metrics.</p>
+            <div class="card-bar" style="width: 70%; background: #ff003c;"></div>
+        </div>
+
+        <div class="draggable-card card-3 interactive-element" style="left: 70%; top: 20%;">
+            <h3>System Controls</h3>
+            <p>Access settings and configurations.</p>
+            <div class="card-bar" style="width: 40%; background: #4ade80;"></div>
+        </div>
+
+        <!-- Virtual Cursor -->
+        <div id="virtual-cursor"></div>
+    </div>
+
+    <script type="module" src="handtracker.js"></script>
+</body>
+
+</html>
